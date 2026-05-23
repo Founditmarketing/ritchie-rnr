@@ -195,13 +195,16 @@ html.lenis body {
   background-size: 100% 100%;
 }
 
-/* Display ceiling — overrides Fraunces for the headline hero scale.
-   Heavier optical adjustments at extreme sizes. */
+/* Display ceiling — Fraunces at maximal scale. Explicit font-size with
+   a confident mobile floor (~58px at 375px) and a 176px ceiling that
+   fits a col-span-8 column at every common desktop width without letter
+   collision. Tracking eased back to -0.028em so the letterforms breathe. */
 .display-ceiling {
   font-family: var(--font-display);
+  font-size: clamp(3.5rem, 14.5vw, 11rem);
   font-variation-settings: "opsz" 144, "SOFT" 20, "WONK" 0;
-  letter-spacing: -0.045em;
-  line-height: 0.84;
+  letter-spacing: -0.028em;
+  line-height: 0.88;
 }
 
 /* Vertical marginalia spine (rotated mono text down the page edge) */

@@ -44,7 +44,7 @@ export function Nav() {
           aria-label="Ritchie for NAR Treasurer — home"
         >
           <span
-            className="font-display text-[1.35rem] md:text-[1.5rem] leading-none tracking-display-tight"
+            className="font-display text-[1.65rem] md:text-[2rem] leading-none tracking-display-tight"
             style={{
               color: "var(--color-claret)",
               fontVariationSettings: '"opsz" 144, "SOFT" 70, "WONK" 0',
@@ -52,7 +52,7 @@ export function Nav() {
           >
             Ritchie
           </span>
-          <span className="hidden sm:inline font-mono text-[10.5px] uppercase tracking-[0.18em] text-[color:var(--color-ink-3)]">
+          <span className="hidden sm:inline font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-ink-3)] mb-[2px]">
             for NAR Treasurer
           </span>
         </a>
@@ -128,7 +128,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center w-10 h-10 -mr-2 text-[color:var(--color-ink)]"
+            className="inline-flex items-center justify-center min-w-11 min-h-11 -mr-2 text-[color:var(--color-ink)]"
           >
             <span className="sr-only">Menu</span>
             <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden>
