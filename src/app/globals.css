@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — Ritchie for NAR Treasurer
+   Brand register: editorial broadsheet × campaign collateral
+   Strategy: Committed (burgundy carries identity, parchment grounds)
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Color: tinted neutrals warmed toward parchment */
+  --color-paper: oklch(0.972 0.012 75);
+  --color-paper-2: oklch(0.945 0.016 75);
+  --color-paper-3: oklch(0.905 0.020 75);
+  --color-rule: oklch(0.84 0.022 70);
+  --color-ink: oklch(0.16 0.014 55);
+  --color-ink-2: oklch(0.26 0.014 55);
+  --color-ink-3: oklch(0.46 0.012 55);
+  --color-ink-4: oklch(0.64 0.010 60);
+
+  /* Identity: deep oxblood — gravitas without finance-navy or campaign-red */
+  --color-claret: oklch(0.36 0.135 22);
+  --color-claret-2: oklch(0.46 0.155 24);
+  --color-claret-deep: oklch(0.26 0.110 22);
+
+  /* Brass accent — sparingly, for ornament */
+  --color-brass: oklch(0.70 0.105 78);
+  --color-brass-2: oklch(0.58 0.105 70);
+
+  /* Type families — wired to next/font variables with sensible fallbacks */
+  --font-display: var(--font-fraunces), "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Type scale — true contrast between steps, mobile-friendly mins.
+     fs-xxl ceiling tuned so "Ritchie." fits in a 7-col container at 1920px. */
+  --fs-xxl: clamp(3rem, 13vw, 10.5rem);
+  --fs-xl: clamp(2.25rem, 8vw, 6.5rem);
+  --fs-l: clamp(1.5rem, 3.4vw, 3rem);
+  --fs-m: clamp(1.375rem, 2.4vw, 2rem);
+  --fs-lede: clamp(1.0625rem, 1.4vw, 1.375rem);
+}
+
+/* Lenis smooth-scroll integration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings:
+      "kern" 1, "liga" 1, "calt" 1, "ss01" 1, "cv11" 1;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+
+  ::selection {
+    background: var(--color-claret);
+    color: var(--color-paper);
+  }
+
+  ::-moz-selection {
+    background: var(--color-claret);
+    color: var(--color-paper);
+  }
+
+  /* A11y focus */
+  :focus-visible {
+    outline: 2px solid var(--color-claret);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Display family defaults */
+  .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "ss01" 1;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Eyebrow — small-caps label used to mark sections */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-claret);
+  }
+
+  /* Marginalia — running mono text used on the spine of sections.
+     Brass is the second chromatic tone — disciplined, not decorative. */
+  .marginalia {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-brass-2);
+  }
+
+  /* Animated link underline (left-to-right draw on hover) */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 380ms var(--ease-out-expo);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Editorial container */
+  .container-edit {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 1320px;
+  }
+  @media (min-width: 768px) {
+    .container-edit { padding-inline: 2rem; }
+  }
+  @media (min-width: 1200px) {
+    .container-edit { padding-inline: 3rem; }
+  }
+
+  /* Rule — hairline divider with serif sensibility */
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  /* Display tracking tightening */
+  .tracking-display { letter-spacing: -0.022em; }
+  .tracking-display-tight { letter-spacing: -0.032em; }
+}
+
+/* Subtle paper grain — barely-there texture for warmth */
+.paper-grain {
+  background-image:
+    radial-gradient(at 14% 22%, oklch(0.96 0.014 75) 0%, transparent 38%),
+    radial-gradient(at 86% 76%, oklch(0.96 0.018 70) 0%, transparent 42%),
+    radial-gradient(at 50% 50%, var(--color-paper) 0%, var(--color-paper) 100%);
+}
+
+/* Hand-drawn underline for emphasis */
+.ink-underline {
+  background-image: linear-gradient(transparent 62%, oklch(0.70 0.105 78 / 0.55) 62%, oklch(0.70 0.105 78 / 0.55) 90%, transparent 90%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Display ceiling — overrides Fraunces for the headline hero scale.
+   Heavier optical adjustments at extreme sizes. */
+.display-ceiling {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 20, "WONK" 0;
+  letter-spacing: -0.045em;
+  line-height: 0.84;
+}
+
+/* Vertical marginalia spine (rotated mono text down the page edge) */
+.spine {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-brass-2);
+}
+
+/* Hero name reveal — clip-path wipe up. Triggers via in-view class. */
+@keyframes name-rise {
+  from { clip-path: inset(0 0 100% 0); transform: translateY(8%); }
+  to   { clip-path: inset(0 0 -2% 0); transform: translateY(0); }
+}
+.name-rise {
+  animation: name-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-rise { animation: none; }
+}
