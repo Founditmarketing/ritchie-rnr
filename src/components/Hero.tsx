@@ -183,12 +183,12 @@ export function Hero() {
                   className="absolute inset-0"
                 >
                   <Image
-                    src="/matt-portrait.png"
+                    src="/matt-headshot.jpg"
                     alt="Matt Ritchie, candidate for 2027 & 2028 NAR Treasurer"
                     fill
                     sizes="(min-width: 1024px) 36vw, (min-width: 768px) 40vw, 100vw"
                     className="object-cover"
-                    style={{ objectPosition: "50% 28%" }}
+                    style={{ objectPosition: "50% 32%" }}
                     priority
                   />
                 </motion.div>
