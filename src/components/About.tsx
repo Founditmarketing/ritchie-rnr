@@ -4,7 +4,7 @@ import { WordReveal } from "./WordReveal";
 import { StaggerGrid } from "./StaggerGrid";
 
 const paragraphs = [
-  "With more than 25 years of experience as a broker, investor and property manager in Louisiana, I have earned the trust of clients, colleagues and leaders both in my state and across the real estate industry.",
+  "With more than 26 years of experience as a broker, investor and property manager in Louisiana, I have earned the trust of clients, colleagues and leaders both in my state and across the real estate industry.",
   "I\u2019ve always had a passion for real estate. I purchased my first rental property at the age of 23, while still in college, then graduated from the University of Louisiana at Lafayette with a degree in business administration and became a licensed broker five years later.",
   "Over the years, I\u2019ve gained a deep understanding of personal investments, brokerage operations, detailed real estate budgets and large-scale developments that have resulted in complex commercial deals.",
   "I especially enjoy opportunities to reposition overlooked properties into high-value assets.",

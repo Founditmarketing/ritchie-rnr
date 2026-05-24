@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Matt Ritchie for 2027 & 2028 NAR Treasurer",
     description:
-      "I will guard our finances and guide our future. Eligible candidate, 25+ years in real estate leadership.",
+      "I will guard our finances and guide our future. Eligible candidate, 26+ years in real estate leadership.",
   },
   robots: { index: true, follow: true },
 };

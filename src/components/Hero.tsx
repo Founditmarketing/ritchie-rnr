@@ -228,16 +228,16 @@ export function Hero() {
                 roker, investor and property
                 <br className="hidden sm:inline" /> manager
               </span>
-              {" "}— a Louisiana practitioner with a quarter-century record at
+              {" "}— a Louisiana practitioner with a 26-year record at
               every tier of the industry. Standing for the Association&rsquo;s
               fiduciary office to safeguard its finances and steward its future.
             </p>
 
             {/* Credentials — single mono line, no grid, no rule */}
             <p className="mt-8 font-mono text-[10.5px] md:text-[11px] uppercase tracking-[0.14em] text-[color:var(--color-ink-3)] leading-[1.7]">
-              25 yrs
+              26 yrs
               <span className="mx-2 text-[color:var(--color-brass-2)]">·</span>
-              Broker, LA — since 2004
+              Broker, LA — since 2000
               <span className="mx-2 text-[color:var(--color-brass-2)]">·</span>
               FedPolCoord (Sen. Kennedy)
               <span className="mx-2 text-[color:var(--color-brass-2)]">·</span>
@@ -295,7 +295,7 @@ export function Hero() {
         <dl className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-5 sm:gap-y-7 gap-x-5 md:gap-x-8 py-7 sm:py-8 md:py-10">
           {[
             {
-              k: <Counter to={25} />,
+              k: <Counter to={26} />,
               suffix: "years",
               vMobile: "Brokerage, investment & property mgmt",
               v: "Of brokerage, investment & property management",
